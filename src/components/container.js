@@ -9,7 +9,9 @@ import '@fortawesome/fontawesome-free/js/all.js';
 class Container extends React.Component {
 
 	state = {
-		selectedPage: "MAIN"
+		selectedPage: "MAIN",
+		name: "",
+		address: "",
 	}
 
 	render() {
@@ -30,10 +32,32 @@ class Container extends React.Component {
 		});
 	}
 
+	updateName = (name) => {
+		this.setState({
+			name: name
+		});
+	}
+
+	updateAddress = (address) => {
+		this.setState({
+			address: address
+		});
+	}
+
 	getBody = () => {
 		switch (this.state.selectedPage) {
-			case "MAIN": return <Form handleChangePageClick = {this.handleChangePageClick}/>;
-			default: return <Result handleChangePageClick = {this.handleChangePageClick}/>;
+			case "MAIN": return <Form
+					handleChangePageClick = {this.handleChangePageClick}
+					name = {this.state.name}
+					address={this.state.address}
+					updateName = {this.updateName}
+					updateAddress = {this.updateAddress}
+				/>;
+			default: return <Result
+				handleChangePageClick = {this.handleChangePageClick}
+				name = {this.state.name}
+				address={this.state.address}
+			/>;
 		}
 	}
 }

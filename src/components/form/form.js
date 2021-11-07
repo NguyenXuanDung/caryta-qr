@@ -5,15 +5,22 @@ import '../../styles/form/form.css';
 class Form extends React.Component {
 
 	state = {
-		name: "",
-		address: "",
 		isNameFocused: false,
 		isAddressFocused: false,
 	}
 
+	componentDidMount() {
+		if (this.props.name != "") {
+			this.setState({isNameFocused : true});
+		}
+		if (this.props.address != "") {
+			this.setState({isAddressFocused : true});
+		}
+	}
+
 	render() {
 		return <div className="login-content">
-			<form action="index.html">
+			<form>
 				<img src={avatar} alt="person"/>
 					<h2 className="title">CARYTA</h2>
 					<div
@@ -27,7 +34,7 @@ class Form extends React.Component {
 							<input
 								type="text"
 								className="input"
-								value={this.state.name}
+								value={this.props.name}
 								onChange={this.handleChangeName}
 								onFocus={this.handleNameFocus}
 								onBlur={this.handleNameBlur}
@@ -45,7 +52,7 @@ class Form extends React.Component {
 							<input
 								type="text"
 								className="input"
-								value={this.state.address}
+								value={this.props.address}
 								onChange={this.handleChangeAddress}
 								onFocus={this.handleAddressFocus}
 								onBlur={this.handleAddressBlur}
@@ -57,17 +64,18 @@ class Form extends React.Component {
 						className="btn"
 						value="Khai báo"
 						onClick={(e) => this.handleChangePageClick(e, "RESULT")}
+						disabled={!this.isValidForm()}
 					/>
 			</form>
 		</div>;
 	}
 
 	handleChangeName = (event) => {
-		this.setState({name: event.target.value});
+		this.props.updateName(event.target.value);
 	}
 
 	handleChangeAddress = (event) => {
-		this.setState({address: event.target.value});
+		this.props.updateAddress(event.target.value);
 	}
 
 	handleNameFocus = () => {
@@ -75,7 +83,7 @@ class Form extends React.Component {
 	}
 
 	handleNameBlur = () => {
-		if (this.state.name == "") {
+		if (this.props.name == "") {
 			this.setState({isNameFocused : false});
 		}
 	}
@@ -85,16 +93,18 @@ class Form extends React.Component {
 	}
 
 	handleAddressBlur = () => {
-		if (this.state.address == "") {
+		if (this.props.address == "") {
 			this.setState({isAddressFocused : false});
 		}
 	}
 
-
 	handleChangePageClick = (e, pageName) => {
 		e.preventDefault();
-		console.log("state: ", this.state);
 		this.props.handleChangePageClick(pageName);
+	}
+
+	isValidForm = () => {
+		return this.props.name != "" && this.props.address != "";
 	}
 }
 

@@ -1,4 +1,4 @@
-form{
+form {
     width: 360px;
 }
 
@@ -127,12 +127,17 @@ form{
     transition: .5s;
 }
 
-.btn:hover{
-    background-position: right;
+.btn:disabled{
+    background: #dddddd;
+    cursor: auto;
+}
+
+.btn:hover:enabled{
+    background-image: linear-gradient(to right, black, black);
 }
 
 @media screen and (max-width: 1000px){
-    form{
+    form {
         width: 290px;
     }
 
