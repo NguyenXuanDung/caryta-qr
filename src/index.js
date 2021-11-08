@@ -13,7 +13,7 @@ class Dung extends React.Component {
 							<title>Caryta</title>
 						</Helmet>
 						{/*<Container></Container>*/}
-						Đang phát triển
+						Đã chuyển sang dùng PC covid, không dùng app này nữa
 					</div>);
 		}
 }
