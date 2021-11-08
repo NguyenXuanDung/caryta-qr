@@ -9,6 +9,22 @@
     width: 100%;
 }
 
+.black {
+    color: black;
+}
+
+.red {
+    color: red;
+}
+
+.justify {
+    text-align: justify;
+}
+
+.left {
+    text-align: left;
+}
+
 @media screen and (max-width: 900px){
     .result-content{
         justify-content: center;
