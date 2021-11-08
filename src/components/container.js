@@ -27,7 +27,7 @@ class Container extends React.Component {
 				<div className="img">
 					<img src={bg} alt="person" className="img"/>
 				</div>
-				{this.getBody()}
+				Đang xử lý sự cố
 			</div>
 		</div>;
 	}
