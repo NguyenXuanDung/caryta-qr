@@ -1,6 +1,6 @@
 import React from 'react';
 import '@fortawesome/fontawesome-free/js/all.js';
-import QRCode from 'qrcode';
+// import QRCode from 'qrcode';
 import '../../styles/result/result.css';
 
 class Result extends React.Component {
@@ -8,44 +8,24 @@ class Result extends React.Component {
 		src: ""
 	}
 
-	componentDidMount() {
-		let content = this.getContent();
-		QRCode.toDataURL(content).then((data) => {
-			this.setState({src: data});
-		});
-	}
+	// componentDidMount() {
+	// 	let content = this.getContent();
+	// 	QRCode.toDataURL(content).then((data) => {
+	// 		this.setState({src: data});
+	// 	});
+	// }
 
 	render() {
 		return <div className="result-content">
 			<form>
-				<img
-					className="qr-code"
-					src={this.state.src}
-				/>
-				<div className="text black">Mã QR code dùng để Check in</div>
-				<div className="text black">Ngày khai báo: {this.getDate()} Thời gian: {this.getTime()} </div>
+				<div className="space-top"></div>
+				<div className="text red big">ĐĂNG KÝ THÀNH CÔNG!</div>
 				<br/>
-				<div className="text red">VUI LÒNG LƯU LẠI QRCODE ĐỂ SỬ DỤNG</div>
-				<br/>
-				<div className="text black justify">
-					Nếu có thay đổi lịch trình di chuyển hoặc trạng thái sức khoẻ liên quan đến phòng chống dịch theo quy định: Người dân có trách nhiệm phải KHAI BÁO BỔ SUNG.
-				</div>
-				<br/>
-				<div className="text black justify">
-					Nếu có triệu chứng nghi nhiễm; tiếp xúc với người nghi nhiễm, về từ vùng dịch: Đề nghị Anh/Chị liên hệ/đến cơ quan y tế gần nhất để được hướng dẫn, hỗ trợ.
-				</div>
-				<br/>
-				<div className="text black">Liên hệ đường dây nóng:</div>
-				<br/>
-				<div className="text black left">1. TP Đà Nẵng: <span className="red">(0236) 1022</span> </div>
-				<div className="text black left">2. Trung tâm CDC Đà Nẵng: <span className="red">0905 108 844</span> </div>
-				<div className="text black left">3. Đường dây nóng Bộ Y tế: <span className="red">1900 9095</span> </div>
-				<br/>
-				<div className="text black">Cảm ơn bạn đã khai báo thông tin y tế!</div>
+				<div className="text black">Cảm ơn quý khách!</div>
 				<input
 					type="submit"
 					className="btn"
-					value="Khai báo lại"
+					value="QUAY LẠI / BACK"
 					onClick={(e) => this.handleChangePageClick(e, "MAIN")}
 				/>
 			</form>

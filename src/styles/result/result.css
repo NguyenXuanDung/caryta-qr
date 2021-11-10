@@ -17,12 +17,20 @@
     color: red;
 }
 
+.big {
+    font-size: 20px;
+}
+
 .justify {
     text-align: justify;
 }
 
 .left {
     text-align: left;
+}
+
+.space-top {
+    height: 250px;
 }
 
 @media screen and (max-width: 900px){
